@@ -1,1 +1,21 @@
+// Method used to get the names of the drivers
+public class DriverDetails
+{
+    private static void driverNames()
+    {
+        String name = "";
+        System.out.println(userName+", please input the names of the drivers. Type 'stop' to end:");
 
+        // Allow the user the keep adding names until they type 'stop'
+        while(!name.equals("stop"))
+        {
+            name = scanner.nextLine();
+            // Stops the while loop when the user inputs 'stop'
+            if(name.equals("stop"))
+            {
+                break;
+            }
+            drivers.add(name); // Add the name to the ArrayList
+        }
+    }
+}
