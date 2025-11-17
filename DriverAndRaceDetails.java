@@ -10,8 +10,14 @@ public class DriverAndRaceDetails
     static HashMap<String, Integer> championshipPoints = new HashMap<String, Integer>(); // Used to store the championship points
     static HashMap<String, String> raceWinners = new HashMap<String, String>(); // Used to store who won each race
     static Scanner scanner = new Scanner(System.in); // Used for user input
-    static String userName = ""; // Used to get and store the user's name to make it personalised
+    private String userName; // Used to get and store the user's name to make it personalised
     
+    // Create the Java constructor
+    public DriverAndRaceDetails(String userName)
+    {
+        this.userName = userName;
+    }
+
     // Method used to get the names of the drivers
     public void driverNames()
     {
