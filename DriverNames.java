@@ -49,4 +49,12 @@ public class DriverNames
             races.add(race); // Add the race to the ArrayList
         }
     }
+
+    public void setChampionshipTable(ArrayList<String> drivers)
+    {
+        for(int i = 0; i < drivers.size(); i++)
+        {
+            championshipPoints.put(drivers.get(i), 0);
+        }
+    }
 }
