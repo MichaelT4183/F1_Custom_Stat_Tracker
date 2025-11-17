@@ -2,7 +2,7 @@ import java.util.ArrayList; // Used to store drivers and races
 import java.util.Scanner; // Used for user input
 import java.util.HashMap; // Used as a dictionary
 
-public class DriverNames
+public class DriverAndRaceDetails
 {
     // Setup global variables
     static ArrayList<String> drivers = new ArrayList<String>(); // Setup array for driver names which are used globally
@@ -47,14 +47,6 @@ public class DriverNames
                 break;
             }
             races.add(race); // Add the race to the ArrayList
-        }
-    }
-
-    public void setChampionshipTable(ArrayList<String> drivers)
-    {
-        for(int i = 0; i < drivers.size(); i++)
-        {
-            championshipPoints.put(drivers.get(i), 0);
         }
     }
 }
