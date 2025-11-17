@@ -11,8 +11,42 @@ public class DriverNames
     static HashMap<String, String> raceWinners = new HashMap<String, String>(); // Used to store who won each race
     static Scanner scanner = new Scanner(System.in); // Used for user input
     static String userName = ""; // Used to get and store the user's name to make it personalised
-    public static void main(String[] args)
+    
+    // Method used to get the names of the drivers
+    public void driverNames()
     {
-        System.out.println("Hello World");
+        String name = "";
+        System.out.println(userName+", please input the names of the drivers. Type 'stop' to end:");
+
+        // Allow the user the keep adding names until they type 'stop'
+        while(!name.equals("stop"))
+        {
+            name = scanner.nextLine();
+            // Stops the while loop when the user inputs 'stop'
+            if(name.equals("stop"))
+            {
+                break;
+            }
+            drivers.add(name); // Add the name to the ArrayList
+        }
+    }
+
+    // Method used to get the names of the races
+    public void raceNames()
+    {
+        String race = "";
+        System.out.println("\n"+userName+", please input the names of the races. Type 'stop' to end:");
+
+        // Allow the user the keep adding names until they type 'stop'
+        while(!race.equals("stop"))
+        {
+            race = scanner.nextLine();
+            // Stops the while loop when the user inputs 'stop'
+            if(race.equals("stop"))
+            {
+                break;
+            }
+            races.add(race); // Add the race to the ArrayList
+        }
     }
 }
