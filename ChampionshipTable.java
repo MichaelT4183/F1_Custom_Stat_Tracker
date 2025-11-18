@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class ChampionshipTable
 {
@@ -11,23 +12,26 @@ public class ChampionshipTable
         this.drivers = drivers;
     }
 
-    public void setChampionshipTable(ArrayList<String> drivers)
+    public void setChampionshipTable()
     {
         for(int i = 0; i < drivers.size(); i++)
         {
-            championshipPoints.put(drivers.get(i), 0);
+            this.championshipPoints.put(drivers.get(i), 0);
         }
     }
 
     public void appendChampionshipTable(String[] raceFinish)
     {
-        for(int i = 0; i < raceFinish.size(); i++)
+        for(int i = 0; i < raceFinish.length; i++)
         {
             // Get the driver's name and the points for their finish position
-            String driverName = raceFinish.get(i);
-            int driverPoints = getFinishPoints(i);
-
-            championshipPoints.replace();
+            String driverName = raceFinish[i];
+            int racePoints = getFinishPoints(i);
+            // Get the driver's current championship points
+            int driverTotalPoints = championshipPoints.get(driverName);
+            // Add the driver's current points and their race points and update the championship table
+            int newPoints = racePoints + driverTotalPoints;
+            this.championshipPoints.replace(driverName, newPoints);
         }
     }
 
@@ -38,8 +42,8 @@ public class ChampionshipTable
         if(i < 10)
         {
             int[] points = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};
-            
-            return points.get(i);
+
+            return points[i];
         }
         // If driver finished out of the top 10
         else 
