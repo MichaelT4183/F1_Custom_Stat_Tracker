@@ -3,16 +3,19 @@ import java.util.ArrayList;
 
 public class ChampionshipTable
 {
+    // Create the private variables so users can't change them without the functions
     private HashMap<String, Integer> championshipPoints;
     private ArrayList<String> drivers;
 
     // Create the java constructor
-    public ChampionshipTable(ArrayList<String> drivers)
+    public ChampionshipTable(ArrayList<String> userDrivers)
     {
-        this.drivers = drivers;
+        this.drivers = userDrivers;
+        setChampionshipTable(drivers);
     }
 
-    public void setChampionshipTable()
+    // Module to set the championship table based off the number of drivers and give them all 0 points
+    private void setChampionshipTable(ArrayList<String> drivers)
     {
         for(int i = 0; i < drivers.size(); i++)
         {
@@ -20,6 +23,7 @@ public class ChampionshipTable
         }
     }
 
+    // Module to change the championship table for drivers who got points
     public void appendChampionshipTable(String[] raceFinish)
     {
         for(int i = 0; i < raceFinish.length; i++)
@@ -36,19 +40,25 @@ public class ChampionshipTable
     }
 
     // Method to get the points for whoever finished
-    private int getFinishPoints(int i)
+    private int getFinishPoints(int position)
     {
         // Check to see if the driver finished within the top 10
-        if(i < 10)
+        if(position < 10)
         {
             int[] points = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};
 
-            return points[i];
+            return points[position];
         }
         // If driver finished out of the top 10
         else 
         {
             return 0;
         }
+    }
+
+    // Display the current championship standings
+    public String toString()
+    {
+        return "Here is the current championship table:\n\n" + championshipPoints;
     }
 }
