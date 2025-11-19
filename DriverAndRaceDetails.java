@@ -1,16 +1,13 @@
 import java.util.ArrayList; // Used to store drivers and races 
 import java.util.Scanner; // Used for user input
-import java.util.HashMap; // Used as a dictionary
 
 public class DriverAndRaceDetails
 {
     // Setup global variables
-    static ArrayList<String> drivers = new ArrayList<String>(); // Setup array for driver names which are used globally
-    static ArrayList<String> races = new ArrayList<String>(); // Setup array for race names which are used globally
-    static HashMap<String, Integer> championshipPoints = new HashMap<String, Integer>(); // Used to store the championship points
-    static HashMap<String, String> raceWinners = new HashMap<String, String>(); // Used to store who won each race
-    static Scanner scanner = new Scanner(System.in); // Used for user input
+    private ArrayList<String> drivers; // Setup array for driver names which are used globally
+    private ArrayList<String> races; // Setup array for race names which are used globally
     private String userName; // Used to get and store the user's name to make it personalised
+    Scanner scanner = new Scanner(System.in); // Used for user input
     
     // Create the Java constructor
     public DriverAndRaceDetails(String userName)
