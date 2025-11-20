@@ -1,0 +1,98 @@
+import java.util.HashMap; // Used for championship points
+import java.util.LinkedHashMap; // Used for sorting the championship points
+import java.util.List; // Used for sorting the championship points
+import java.util.Map; // Used for sorting the championship points
+import java.util.ArrayList; // Used to store the list of drivers
+import java.util.Collections; // Used for sorting the championship points
+import java.util.Comparator; // Used for sorting the championship points
+
+public class ChampionshipTable
+{
+    // Create the private variables so users can't change them without the functions
+    private HashMap<String, Integer> championshipPoints;
+    private Map<String, Integer> sortedChampionshipPoints;
+    private ArrayList<String> drivers;
+
+    // Create the java constructor
+    public ChampionshipTable(ArrayList<String> userDrivers)
+    {
+        this.drivers = userDrivers;
+        setChampionshipTable(drivers);
+    }
+
+    // Module to set the championship table based off the number of drivers and give them all 0 points
+    private void setChampionshipTable(ArrayList<String> drivers)
+    {
+        for(int i = 0; i < drivers.size(); i++)
+        {
+            this.championshipPoints.put(drivers.get(i), 0);
+        }
+    }
+
+    // Module to change the championship table for drivers who got points
+    public void appendChampionshipTable(String[] raceFinish)
+    {
+        for(int i = 0; i < raceFinish.length; i++)
+        {
+            // Get the driver's name and the points for their finish position
+            String driverName = raceFinish[i];
+            int racePoints = getFinishPoints(i);
+            // Get the driver's current championship points
+            int driverTotalPoints = championshipPoints.get(driverName);
+            // Add the driver's current points and their race points and update the championship table
+            int newPoints = racePoints + driverTotalPoints;
+            this.championshipPoints.replace(driverName, newPoints);
+            // Sort the championship HashMap in decsending order
+            sortedChampionshipPoints = sortChampionshipPoints(championshipPoints);
+        }
+    }
+
+    // Method to get the points for whoever finished
+    private int getFinishPoints(int position)
+    {
+        // Check to see if the driver finished within the top 10
+        if(position < 10)
+        {
+            int[] points = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};
+
+            return points[position];
+        }
+        // If driver finished out of the top 10
+        else 
+        {
+            return 0;
+        }
+    }
+
+    // Method to sort the championship table in decsending order
+    private Map<String, Integer> sortChampionshipPoints(HashMap<String, Integer> championshipPoints)
+    {
+        // Convert championship points HashMap to a list
+        List<Map.Entry<String, Integer>> entryList = new ArrayList<>(championshipPoints.entrySet());
+        // Sort the list by value in descending order
+        Collections.sort(entryList, new Comparator<Map.Entry<String, Integer>>() 
+        {
+            @Override // Used to throw an error in case something is spelled incorrectly
+            public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2)
+            {
+                return e2.getValue().compareTo(e1.getValue());
+            }
+        });
+
+        // Create a LinkedHashMap to preserve the order
+        Map<String, Integer> sortedChampionshipTable = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : entryList)
+        {
+            sortedChampionshipTable.put(entry.getKey(), entry.getValue());
+        }
+
+        // Returns the sorted LinkedHashMap in decsending order
+        return sortedChampionshipTable;
+    }
+
+    // Display the current championship standings
+    public String toString()
+    {
+        return "Here is the current championship table:\n\n" + sortedChampionshipPoints;
+    }
+}
