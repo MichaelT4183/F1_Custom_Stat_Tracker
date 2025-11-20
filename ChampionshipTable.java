@@ -1,10 +1,16 @@
-import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.HashMap; // Used for championship points
+import java.util.LinkedHashMap; // Used for sorting the championship points
+import java.util.List; // Used for sorting the championship points
+import java.util.Map; // Used for sorting the championship points
+import java.util.ArrayList; // Used to store the list of drivers
+import java.util.Collections; // Used for sorting the championship points
+import java.util.Comparator; // Used for sorting the championship points
 
 public class ChampionshipTable
 {
     // Create the private variables so users can't change them without the functions
     private HashMap<String, Integer> championshipPoints;
+    private Map<String, Integer> sortedChampionshipPoints;
     private ArrayList<String> drivers;
 
     // Create the java constructor
@@ -36,6 +42,8 @@ public class ChampionshipTable
             // Add the driver's current points and their race points and update the championship table
             int newPoints = racePoints + driverTotalPoints;
             this.championshipPoints.replace(driverName, newPoints);
+            // Sort the championship HashMap in decsending order
+            sortedChampionshipPoints = sortChampionshipPoints(championshipPoints);
         }
     }
 
@@ -56,9 +64,35 @@ public class ChampionshipTable
         }
     }
 
+    // Method to sort the championship table in decsending order
+    private Map<String, Integer> sortChampionshipPoints(HashMap<String, Integer> championshipPoints)
+    {
+        // Convert championship points HashMap to a list
+        List<Map.Entry<String, Integer>> entryList = new ArrayList<>(championshipPoints.entrySet());
+        // Sort the list by value in descending order
+        Collections.sort(entryList, new Comparator<Map.Entry<String, Integer>>() 
+        {
+            @Override // Used to throw an error in case something is spelled incorrectly
+            public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2)
+            {
+                return e2.getValue().compareTo(e1.getValue());
+            }
+        });
+
+        // Create a LinkedHashMap to preserve the order
+        Map<String, Integer> sortedChampionshipTable = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : entryList)
+        {
+            sortedChampionshipTable.put(entry.getKey(), entry.getValue());
+        }
+
+        // Returns the sorted LinkedHashMap in decsending order
+        return sortedChampionshipTable;
+    }
+
     // Display the current championship standings
     public String toString()
     {
-        return "Here is the current championship table:\n\n" + championshipPoints;
+        return "Here is the current championship table:\n\n" + sortedChampionshipPoints;
     }
 }
