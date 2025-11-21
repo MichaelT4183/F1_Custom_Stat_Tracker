@@ -7,7 +7,7 @@ public class Test_File_DriverAndRaceDetails
     {
         // Get the user's name
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Test");
+        System.out.println("Please enter your name");
         String name = scanner.nextLine();
 
         // Test the constructor and that it works
@@ -17,6 +17,8 @@ public class Test_File_DriverAndRaceDetails
         details.driverNames();
         // Test inputting the race names
         details.raceNames();
+
+        System.out.println(details);
 
         scanner.close();
     }

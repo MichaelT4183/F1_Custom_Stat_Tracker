@@ -4,8 +4,8 @@ import java.util.Scanner; // Used for user input
 public class DriverAndRaceDetails
 {
     // Setup global variables
-    private ArrayList<String> drivers; // Setup array for driver names which are used globally
-    private ArrayList<String> races; // Setup array for race names which are used globally
+    private ArrayList<String> drivers = new ArrayList<>(); // Setup array for driver names
+    private ArrayList<String> races = new ArrayList<>(); // Setup array for race names
     private String userName; // Used to get and store the user's name to make it personalised
     Scanner scanner = new Scanner(System.in); // Used for user input
     
@@ -51,5 +51,10 @@ public class DriverAndRaceDetails
             }
             races.add(race); // Add the race to the ArrayList
         }
+    }
+
+    public String toString()
+    {
+        return "Your drivers are: "+drivers+"\n\nYour races are: "+races;
     }
 }
