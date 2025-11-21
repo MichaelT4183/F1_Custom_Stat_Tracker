@@ -18,13 +18,11 @@ public class Test_File_ChampionshipTable
         // Test to try and print the championship table before populating it (Should return an error)
         System.out.println(table);
 
+        // Create the race finish and attempt to append the championship table
+        String raceFinish[] = {"Lando", "Max", "Charles"}; // Array for test data (Race finish)
+        table.appendChampionshipTable(raceFinish);
+
+        // Check to see if the championship table has been altered
         System.out.println(table);
-
-        // // Create the race finish and attempt to append the championship table
-        // String raceFinish[] = {"Lando", "Max", "Charles"}; // Array for test data (Race finish)
-        // table.appendChampionshipTable(raceFinish);
-
-        // // Check to see if the championship table has been altered
-        // System.out.println(table);
     }
 }
