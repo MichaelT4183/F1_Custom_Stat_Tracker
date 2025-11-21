@@ -19,6 +19,7 @@ public class ChampionshipTable
     public ChampionshipTable(ArrayList<String> userDrivers)
     {
         this.drivers = userDrivers;
+        this.championshipPoints = new HashMap<>();
         setChampionshipTable(drivers);
     }
 
@@ -95,6 +96,13 @@ public class ChampionshipTable
     // Display the current championship standings
     public String toString()
     {
-        return "Here is the current championship table:\n\n" + sortedChampionshipPoints;
+        if (sortedChampionshipPoints !=null)
+        {
+            return "Here is the current championship table:\n\n" + sortedChampionshipPoints;
+        }
+        else
+        {
+            return "Here is the current championship table:\n\n" + championshipPoints;
+        }
     }
 }
