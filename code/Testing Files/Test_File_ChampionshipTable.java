@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.util.ArrayList; // Used for the test list of drivers
+import seasonMethods.ChampionshipTable; // Import the package for testing
 
 public class Test_File_ChampionshipTable
 {

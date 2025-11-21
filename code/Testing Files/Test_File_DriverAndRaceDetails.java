@@ -1,6 +1,5 @@
 import java.util.Scanner; // Used for user inputs
-
-import code.driverandracedetails.DriverAndRaceDetails;
+import seasonMethods.DriverAndRaceDetails; // Import the package for testing
 
 public class Test_File_DriverAndRaceDetails
 {
