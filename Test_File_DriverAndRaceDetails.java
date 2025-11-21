@@ -9,10 +9,14 @@ public class Test_File_DriverAndRaceDetails
         Scanner scanner = new Scanner(System.in);
         System.out.println("Test");
         String name = scanner.nextLine();
+
         // Test the constructor and that it works
         DriverAndRaceDetails details = new DriverAndRaceDetails(name);
-        System.out.println(details);
 
+        // Test inputting the driver names
+        details.driverNames();
+        // Test inputting the race names
+        details.raceNames();
 
         scanner.close();
     }
