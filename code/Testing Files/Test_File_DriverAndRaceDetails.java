@@ -1,5 +1,7 @@
 import java.util.Scanner; // Used for user inputs
 
+import code.driverandracedetails.DriverAndRaceDetails;
+
 public class Test_File_DriverAndRaceDetails
 {
     // Main method used to test the file

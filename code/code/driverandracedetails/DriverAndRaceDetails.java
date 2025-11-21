@@ -1,3 +1,5 @@
+package code.driverandracedetails;
+
 import java.util.ArrayList; // Used to store drivers and races 
 import java.util.Scanner; // Used for user input
 
