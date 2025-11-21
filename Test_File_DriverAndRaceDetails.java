@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner; // Used for user inputs
 
 public class Test_File_DriverAndRaceDetails
 {
@@ -14,12 +14,12 @@ public class Test_File_DriverAndRaceDetails
         DriverAndRaceDetails details = new DriverAndRaceDetails(name);
 
         // Test inputting the driver names
-        details.driverNames();
+        details.getDriverNames();
         // Test inputting the race names
-        details.raceNames();
-
+        details.getRaceNames();
+        // Test that the ArrayLists are displayed to the user
         System.out.println(details);
-
+        // Close the scanner
         scanner.close();
     }
 
