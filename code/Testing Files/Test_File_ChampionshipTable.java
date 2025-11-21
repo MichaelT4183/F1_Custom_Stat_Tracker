@@ -24,5 +24,12 @@ public class Test_File_ChampionshipTable
 
         // Check to see if the championship table has been altered
         System.out.println(table);
+
+        // Create a 2nd race finish and attempt to append the championship table again
+        String raceFinish2[] = {"Max", "Charles", "Lando"}; // Array for test data (Race finish)
+        table.appendChampionshipTable(raceFinish2);
+
+        // Check to see if the championship table has been altered
+        System.out.println(table);
     }
 }
