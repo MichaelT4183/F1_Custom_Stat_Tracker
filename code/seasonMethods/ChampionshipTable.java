@@ -7,6 +7,7 @@ import java.util.Map; // Used for sorting the championship points
 import java.util.ArrayList; // Used to store the list of drivers
 import java.util.Collections; // Used for sorting the championship points
 import java.util.Comparator; // Used for sorting the championship points
+import java.lang.StringBuilder; // Used for formatting the championship table
 
 public class ChampionshipTable
 {
@@ -18,8 +19,10 @@ public class ChampionshipTable
     // Create the java constructor
     public ChampionshipTable(ArrayList<String> userDrivers)
     {
+        // Initialise the variables
         this.drivers = userDrivers;
         this.championshipPoints = new HashMap<>();
+        // Create the base championship table
         setChampionshipTable(drivers);
     }
 
@@ -96,13 +99,31 @@ public class ChampionshipTable
     // Display the current championship standings
     public String toString()
     {
+        // Checks to see if the sorted table is null. If not, it displays the table
         if (sortedChampionshipPoints !=null)
         {
-            return "Here is the current championship table:\n\n" + sortedChampionshipPoints;
+            // StringBuilder to add the championship points to a formatted mutable string
+            StringBuilder sb = new StringBuilder("Here is the current championship table:\n\n");
+            int i = 1;
+            for (Map.Entry<String, Integer> entry : sortedChampionshipPoints.entrySet())
+            {
+                sb.append(i + ". " + entry.getKey() + ": " + entry.getValue() + "\n"); // Add a new entry to the string
+                i++;
+            }
+            return sb.toString();
         }
+        // Will return the unsorted table (When it is first created) if the other is null
         else
         {
-            return "Here is the current championship table:\n\n" + championshipPoints;
+            // StringBuilder to add the championship points to a formatted mutable string
+            StringBuilder sb = new StringBuilder("Here is the current championship table:\n\n");
+            int i = 1;
+            for (Map.Entry<String, Integer> entry : championshipPoints.entrySet())
+            {
+                sb.append(i + ". " + entry.getKey() + ": " + entry.getValue() + "\n"); // Add a new entry to the string
+                i++;
+            }
+            return sb.toString();
         }
     }
 }
