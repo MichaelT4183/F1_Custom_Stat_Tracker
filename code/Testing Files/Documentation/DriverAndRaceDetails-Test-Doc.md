@@ -85,17 +85,17 @@ No error was thrown and the code allows the user to input the drivers and the ra
 
 ___
 ### Test 3 - Printing the class 
-This test is to check that both the driver names and the race names will be outputted once you have used the methods 'getDriverNames' and 'getRaceNames' (Featured in test 2). It uses the following test code:
+This test is to check that both the driver names and the race names will be outputted once you have used the methods **'getDriverNames'** and **'getRaceNames'** **_(Featured in test 2)_**. It uses the following test code:
 ```
 // Test that the ArrayLists are displayed to the user
 System.out.println(details);
 ```
 
 #### Result
-Nothing was printed out due to getting a "Cannot invoke" error because there was not a 'toString' method in the file.
+Nothing was printed out due to getting a **"Cannot invoke"** error because there was not a **'toString'** method in the file.
 
 #### Updates and Actions
-After the test, I have included a 'toString' method which will output both the drivers and the races the user inputted into the method previously. This has been done using the following code:
+After the test, I have included a **'toString'** method which will output both the drivers and the races the user inputted into the method previously. This has been done using the following code:
 ```
 // toString method to display the list of drivers and races
 public String toString()
@@ -105,7 +105,7 @@ public String toString()
 ```
 ___
 ### Test 4 - Printing the class after changes
-This test is to check that the "Cannot invoke" error has been fixed. This is using the following test code:
+This test is to check that the **"Cannot invoke"** error has been fixed. This is using the following test code:
 ```
 // Test that the ArrayLists are displayed to the user
 System.out.println(details);
@@ -116,3 +116,7 @@ The code outputs both the drivers and races that the user inputted successfully 
 
 #### Updates and actions
 After the final test, I have added extra comment in the file to explain what it does and changed variable names within the methods to make it easier to understand the variable names.
+
+___
+### Final Comments
+The DriverAndRaceDetails.java file is fully functional. The file will process the data correctly and output it correctly based off the test data
