@@ -103,3 +103,16 @@ public String toString()
     return "Your drivers are: "+drivers+"\n\nYour races are: "+races;
 }
 ```
+___
+### Test 4 - Printing the class after changes
+This test is to check that the "Cannot invoke" error has been fixed. This is using the following test code:
+```
+// Test that the ArrayLists are displayed to the user
+System.out.println(details);
+```
+
+#### Result
+The code outputs both the drivers and races that the user inputted successfully and does not throw any errors.
+
+#### Updates and actions
+After the final test, I have added extra comment in the file to explain what it does and changed variable names within the methods to make it easier to understand the variable names.
