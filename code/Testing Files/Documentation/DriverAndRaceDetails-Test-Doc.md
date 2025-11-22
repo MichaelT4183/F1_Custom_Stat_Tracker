@@ -81,4 +81,25 @@ details.getRaceNames();
 ```
 
 #### Result
-No error was thrown and the code worked as intended
+No error was thrown and the code allows the user to input the drivers and the races that they want to use in the season simulation
+
+___
+### Test 3 - Printing the class 
+This test is to check that both the driver names and the race names will be outputted once you have used the methods 'getDriverNames' and 'getRaceNames' (Featured in test 2). It uses the following test code:
+```
+// Test that the ArrayLists are displayed to the user
+System.out.println(details);
+```
+
+#### Result
+Nothing was printed out due to getting a "Cannot invoke" error because there was not a 'toString' method in the file.
+
+#### Updates and Actions
+After the test, I have included a 'toString' method which will output both the drivers and the races the user inputted into the method previously. This has been done using the following code:
+```
+// toString method to display the list of drivers and races
+public String toString()
+{
+    return "Your drivers are: "+drivers+"\n\nYour races are: "+races;
+}
+```
