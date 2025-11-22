@@ -26,3 +26,59 @@ DriverAndRaceDetails details = new DriverAndRaceDetails(name);
 #### Result
 The java constructor initialized the variable correctly and did not throw an error.
 
+___
+
+### Test 2 - Testing the getDriverNames and getRaceNames methods
+This test is to see if any errors are thrown when inputting the drivers ArrayList and the races ArrayList
+```
+// Method used to get the names of the drivers
+    public void getDriverNames()
+    {
+        String driverName = "";
+        System.out.println(userName+", please input the names of the drivers. Type 'stop' to end:");
+
+        // Allow the user the keep adding names until they type 'stop'
+        while(!driverName.equals("stop"))
+        {
+            driverName = scanner.nextLine();
+            // Stops the while loop when the user inputs 'stop'
+            if(driverName.equals("stop"))
+            {
+                break;
+            }
+            drivers.add(driverName); // Add the name to the ArrayList
+        }
+    }
+```
+and
+```
+// Method used to get the names of the races
+    public void getRaceNames()
+    {
+        String raceName = "";
+        System.out.println("\n"+userName+", please input the names of the races. Type 'stop' to end:");
+
+        // Allow the user the keep adding names until they type 'stop'
+        while(!raceName.equals("stop"))
+        {
+            raceName = scanner.nextLine();
+            // Stops the while loop when the user inputs 'stop'
+            if(raceName.equals("stop"))
+            {
+                break;
+            }
+            races.add(raceName); // Add the race to the ArrayList
+        }
+    }
+```
+
+This has been done by using the following test data:
+```
+ // Test inputting the driver names
+details.getDriverNames();
+// Test inputting the race names
+details.getRaceNames();
+```
+
+#### Result
+No error was thrown and the code worked as intended
