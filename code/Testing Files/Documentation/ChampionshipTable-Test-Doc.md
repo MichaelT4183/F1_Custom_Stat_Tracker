@@ -93,7 +93,7 @@ The championship table was appended successfully and displayed the drivers in th
 
 ___
 
-### Test 3 - Appending the championship multiple times
+### Test 4 - Appending the championship multiple times
 This test is designed to see if the program can append the championship multiple times, add the 2 different scores together and still keeps the order from highest to lowest. This was done using the following test code:
 ```
 // Create the race finish and attempt to append the championship table
