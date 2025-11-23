@@ -74,3 +74,19 @@ I have initialized the **'championshipPoints'** HashMap within the constructor. 
 ```
 this.championshipPoints = new HashMap<>();
 ```
+
+___
+
+### Test 3 - Appending the championship
+This test is designed to see whether the rest of the modules work correctly. This is done by using the **appendChampionshipTable** method as the others are private to that class. This should then create the LinkedHashMap and should output the new **sortedChampionshipTable** variable and display the drivers' scores in decsending order. This was done using the following test code:
+```
+// Create the race finish and attempt to append the championship table
+String raceFinish[] = {"Lando", "Max", "Charles"}; // Array for test data (Race finish)
+table.appendChampionshipTable(raceFinish);
+
+// Check to see if the championship table has been altered
+System.out.println(table);
+```
+
+#### Result
+The championship table was appended successfully and displayed the drivers in the correct order. No errors were thrown during testing.
