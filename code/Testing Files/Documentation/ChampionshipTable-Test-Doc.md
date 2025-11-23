@@ -90,3 +90,59 @@ System.out.println(table);
 
 #### Result
 The championship table was appended successfully and displayed the drivers in the correct order. No errors were thrown during testing.
+
+___
+
+### Test 3 - Appending the championship multiple times
+This test is designed to see if the program can append the championship multiple times, add the 2 different scores together and still keeps the order from highest to lowest. This was done using the following test code:
+```
+// Create the race finish and attempt to append the championship table
+String raceFinish[] = {"Lando", "Max", "Charles"}; // Array for test data (Race finish)
+table.appendChampionshipTable(raceFinish);
+
+// Check to see if the championship table has been altered
+System.out.println(table);
+
+// Create a 2nd race finish and attempt to append the championship table again
+String raceFinish2[] = {"Max", "Charles", "Lando"}; // Array for test data (Race finish)
+table.appendChampionshipTable(raceFinish2);
+
+// Check to see if the championship table has been altered
+System.out.println(table);
+```
+
+#### Result
+The program works correctly and doesn't override the scores when a new set is appended into the LinkedHashMap and kept the correct order for the championship table.
+The championship table was appended successfully and displayed the drivers in the correct order. No errors were thrown during testing.
+
+#### Updates and Actions
+I have included formatting for the output of the championship table to make it look nicer and easier to understand. This also made sure that it wasn't all on one line. I did this by using the follwowing code:
+```
+// Checks to see if the sorted table is null. If not, it displays the table
+if (sortedChampionshipPoints !=null)
+{
+    // StringBuilder to add the championship points to a formatted mutable string
+    StringBuilder sb = new StringBuilder("Here is the current championship table:\n\n");
+    int i = 1;
+    for (Map.Entry<String, Integer> entry : sortedChampionshipPoints.entrySet())
+    {
+        sb.append(i + ". " + entry.getKey() + ": " + entry.getValue() + "\n"); // Add a new entry to the string
+        i++;
+    }
+    return sb.toString();
+}
+// Will return the unsorted table (When it is first created) if the other is null
+else
+{
+    // StringBuilder to add the championship points to a formatted mutable string
+    StringBuilder sb = new StringBuilder("Here is the current championship table:\n\n");
+    int i = 1;
+    for (Map.Entry<String, Integer> entry : championshipPoints.entrySet())
+    {
+        sb.append(i + ". " + entry.getKey() + ": " + entry.getValue() + "\n"); // Add a new entry to the string
+        i++;
+    }
+    return sb.toString();
+}
+```
+This code has been implemented within the **'toString'** method and within the if statement. Using a **StringBuilder** allows me to combine all of the entries of the LinkedHashMap and print them on every line in a single variable and then display it so it looks like a table.
