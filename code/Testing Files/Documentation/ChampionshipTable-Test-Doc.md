@@ -47,3 +47,30 @@ else
   return "Here is the current championship table:\n\n" + championshipTable;
 }
 ```
+
+___
+
+### Test 2 - Printing class after 'If Statement' **_(In test 1)_**
+This test is to check whether the **'toString'** output works correctly after the actions in Test 1 using the following test code:
+```
+ArrayList<String> drivers = new ArrayList<>(); // ArrayList for test data (Driver names)
+
+// Test the constructor
+ChampionshipTable table = new ChampionshipTable(drivers);
+
+// Populate the driver's ArrayList for test data
+drivers.add("Lando");
+drivers.add("Charles");
+drivers.add("Max");
+
+// Test to try and print the championship table before populating it (Should return an error)
+System.out.println(table);
+```
+#### Result
+The constructor initialized. however, it still returned as **null** after running the program. This was caused because of the **'championshipPoints'** HashMap not being initialized correctly, so it did not add anything to the HashMap, causing it to return as **null**.
+
+#### Updates and Actions
+I have initialized the **'championshipPoints'** HashMap within the constructor. This is so that it is initialized and will start to add the values of the drivers to the HashMap and will print out the championship table. I have also moved the HashMap test data up in the code as it was still printing null values after the changes. I have added the following code to the java constructor:
+```
+this.championshipPoints = new HashMap<>();
+```
