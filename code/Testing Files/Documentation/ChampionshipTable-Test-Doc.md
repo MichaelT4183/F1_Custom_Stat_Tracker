@@ -146,3 +146,8 @@ else
 }
 ```
 This code has been implemented within the **'toString'** method and within the if statement. Using a **StringBuilder** allows me to combine all of the entries of the LinkedHashMap and print them on every line in a single variable and then display it so it looks like a table.
+
+___
+
+### Final Comments
+The ChampionshipTable.java file is fully functional. The file will process the data correctly and format the championship table correctly based off the test data.
