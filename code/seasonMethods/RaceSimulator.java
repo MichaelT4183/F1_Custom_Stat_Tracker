@@ -56,12 +56,24 @@ public class RaceSimulator
         while(!userAnswer.equals("y") || !userAnswer.equals("n"));
     }
 
-    private void userRaceSimulator()
+    private void userRaceSimulator(int i)
     {
+        // Get the name of the race and display the race information
+        String raceName = races.get(i);
+        System.out.println("The next race is: "+raceName+"\n\n");
+        System.out.println("Here is a reminder of your drivers:\n "+drivers);
+
+        // Get the details of the race
+        getRaceDetails();
 
     }
 
     private void aiRaceSimulator()
+    {
+
+    }
+
+    private void getRaceDetails()
     {
 
     }
