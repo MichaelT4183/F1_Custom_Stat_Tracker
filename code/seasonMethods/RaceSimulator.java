@@ -27,6 +27,42 @@ public class RaceSimulator
 
     private void simulateRace(int i)
     {
+        String raceName = races.get(i); // Get the name of the race
+        System.out.println("The next race is: "+raceName+"\n\n");
+        // Ask the user if they want to decide the race finish or if they want an AI (RNG) to simulate
+        System.out.println("Would you like to decide the race finish or have it simulated for you?\nPlease type either y/n");
+        String userAnswer = scanner.nextLine();
+        do // Do-While loop to throw an error when the user does not input a valid answer
+        {
+            if (userAnswer.equals("y"))
+            {
+                System.out.println("\nYou have chosen to decide the race finish yourself.\n\n");
+                userRaceSimulator();
+                break;
+            }
+            else if (userAnswer.equals("n"))
+            {
+                System.out.println("\nYou have chosen to have the race simulated for you.\n\n");
+                aiRaceSimulator();
+                break;
+            }
+            // Error message when the user does not input the correct message and asks for a new input
+            else 
+            {
+                System.out.println("Error: try again");
+                userAnswer = scanner.nextLine();
+            }
+        }
+        while(!userAnswer.equals("y") || !userAnswer.equals("n"));
+    }
+
+    private void userRaceSimulator()
+    {
+
+    }
+
+    private void aiRaceSimulator()
+    {
 
     }
 }
