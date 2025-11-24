@@ -13,4 +13,20 @@ public class RaceSimulator
         this.drivers = drivers;
         this.races = races;
     }
+
+    public void simulateSeason()
+    {
+        // Get the number of races in the season
+        final int numOfRaces = races.size(); 
+        // 'For loop' to loop through the races and count up until there are no races left
+        for(int i = 0; i < numOfRaces; i++)
+        {
+            simulateRace(i);
+        }
+    }
+
+    private void simulateRace(int i)
+    {
+
+    }
 }
