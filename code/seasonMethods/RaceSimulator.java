@@ -35,9 +35,10 @@ public class RaceSimulator
         // Get the name of the race and display the race information
         String raceName = races.get(i);
         String weather = getWeather();
-
         System.out.println("The next race is: "+raceName+"\n\n");
-        System.out.println("Here is a reminder of your drivers:\n "+drivers);
+        System.out.println("Weather: "+weather);
+
+        System.out.println("\n\nHere is your race result:\n\n");
     }
 
     // Method to get the weather for the race
@@ -50,7 +51,7 @@ public class RaceSimulator
         int r = rng.nextInt(max - min + 1) + 1;
 
         // Check what number was generated (20% chance to rain)
-        if(r == 9 || r == 10)
+        if(r >= 9)
         {
             String weather = "Wet";
             return weather;
@@ -59,6 +60,25 @@ public class RaceSimulator
         {
             String weather = "Dry";
             return weather;
+        }
+    }
+
+    // Method to get the race finish
+    private void getRaceFinish()
+    {
+        ArrayList<String> driverListCopy = drivers; // Used to make sure to not delete the original driver list
+        // Get a new random runber to randomly decide who wins
+        Random rng = new Random();
+        int max = driverListCopy.size();
+        int min = 0;
+        // Loop through all of the drivers randomly
+        for(int i = 0; i < drivers.size(); i++)
+        {
+            int r = rng.nextInt(max - min);
+            String driverName = driverListCopy.get(r); // Get the driver's name
+            raceFinish[i] =  driverName; // Add the driver to the race finish array
+            max -= 1; // Reduce the range of the rng
+            driverListCopy.remove(driverName);
         }
     }
 }
