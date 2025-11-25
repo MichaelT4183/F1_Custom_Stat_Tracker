@@ -39,7 +39,23 @@ public class RaceSimulator
         // Display the results of the race
         System.out.println("\n\nHere is your race result:\n\n");
         getRaceFinish();
-        
+
+        // Ask the user if they are ready to continue with the next race
+        System.out.println("Please type 'next' to move onto the next race");
+        String userInput = scanner.nextLine();
+        do
+        {
+            if(!userInput.equals("next"))
+            {
+                System.out.println("\nError: incorrect input. Please try again.");
+                userInput = scanner.nextLine();
+            }
+            else
+            {
+                break;
+            }
+        }
+        while(!userInput.equals("next"));
     }
 
     // Method to get the weather for the race
