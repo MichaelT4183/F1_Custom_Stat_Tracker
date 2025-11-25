@@ -6,7 +6,6 @@ public class RaceSimulator
 {
     private ArrayList<String> drivers; // Get the drivers competing in the season
     private ArrayList<String> races; // Get the number of races and the race names that are in the season
-    private String raceFinish[] = new String [drivers.size()]; // Create an array for where the drivers finish the race (length based on number of drivers)
     private Scanner scanner = new Scanner(System.in);
 
     // Create the java constructor
@@ -37,8 +36,10 @@ public class RaceSimulator
         String weather = getWeather();
         System.out.println("The next race is: "+raceName+"\n\n");
         System.out.println("Weather: "+weather);
-
+        // Display the results of the race
         System.out.println("\n\nHere is your race result:\n\n");
+        getRaceFinish();
+        
     }
 
     // Method to get the weather for the race
@@ -66,6 +67,7 @@ public class RaceSimulator
     // Method to get the race finish
     private void getRaceFinish()
     {
+        String raceFinish[] = new String [drivers.size()]; // Create an array for where the drivers finish the race (length based on number of drivers)
         ArrayList<String> driverListCopy = drivers; // Used to make sure to not delete the original driver list
         // Get a new random runber to randomly decide who wins
         Random rng = new Random();
@@ -78,7 +80,17 @@ public class RaceSimulator
             String driverName = driverListCopy.get(r); // Get the driver's name
             raceFinish[i] =  driverName; // Add the driver to the race finish array
             max -= 1; // Reduce the range of the rng
-            driverListCopy.remove(driverName);
+            driverListCopy.remove(driverName); // Remove the driver from the list
+        }
+        displayRaceFinish(raceFinish); // Display the race finish
+    }
+
+    // Method to display the race finish
+    private void displayRaceFinish(String[] raceFinish)
+    {
+        for(int i = 0; i < raceFinish.length; i++)
+        {
+            System.out.println((i+1)+". "+raceFinish[i]);
         }
     }
 }
