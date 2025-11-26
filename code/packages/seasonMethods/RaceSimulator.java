@@ -1,4 +1,5 @@
 package packages.seasonMethods;
+
 import java.util.Scanner; // Used for user input
 import java.util.ArrayList; // Used for the driver and race lists
 import java.util.Random; // Used to get the weather, tires, dnf's, AI simulations etc.
@@ -7,6 +8,7 @@ public class RaceSimulator
 {
     private ArrayList<String> drivers; // Get the drivers competing in the season
     private ArrayList<String> races; // Get the number of races and the race names that are in the season
+    private ChampionshipTable championship = new ChampionshipTable(drivers);
     private Scanner scanner = new Scanner(System.in);
 
     // Create the java constructor
@@ -17,20 +19,8 @@ public class RaceSimulator
         this.races = races;
     }
 
-    // Method used to simulate the whole season
-    public void simulateSeason()
-    {
-        // Get the number of races in the season
-        final int numOfRaces = races.size(); 
-        // 'For loop' to loop through the races and count up until there are no races left
-        for(int i = 0; i < numOfRaces; i++)
-        {
-            simulateRace(i);
-        }
-    }
-
     // Method to simulate a single race
-    private void simulateRace(int i)
+    public void simulateRace(int i)
     {
         // Get the name of the race and display the race information
         String raceName = races.get(i);
@@ -100,7 +90,7 @@ public class RaceSimulator
             driverListCopy.remove(driverName); // Remove the driver from the list
         }
         displayRaceFinish(raceFinish); // Display the race finish
-        
+        championship.appendChampionshipTable(raceFinish); // Sends the race finish to ChampionshipTable.java to append the table
     }
 
     // Method to display the race finish
