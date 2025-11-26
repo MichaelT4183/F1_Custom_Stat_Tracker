@@ -8,7 +8,7 @@ public class RaceSimulator
 {
     private ArrayList<String> drivers; // Get the drivers competing in the season
     private ArrayList<String> races; // Get the number of races and the race names that are in the season
-    private ChampionshipTable championship = new ChampionshipTable(drivers);
+    //private ChampionshipTable championship = new ChampionshipTable(drivers);
     private Scanner scanner = new Scanner(System.in);
 
     // Create the java constructor
@@ -90,6 +90,7 @@ public class RaceSimulator
             driverListCopy.remove(driverName); // Remove the driver from the list
         }
         displayRaceFinish(raceFinish); // Display the race finish
+        ChampionshipTable championship = new ChampionshipTable(drivers);
         championship.appendChampionshipTable(raceFinish); // Sends the race finish to ChampionshipTable.java to append the table
     }
 

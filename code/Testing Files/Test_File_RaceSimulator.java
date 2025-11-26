@@ -23,5 +23,9 @@ public class Test_File_RaceSimulator
         races.add("Jeddah");
         races.add("Spa");
         races.add("Abu Dhabi");
+
+        // Test the constructor and print the class
+        RaceSimulator simRace = new RaceSimulator(drivers, races);
+        System.out.println(simRace);
     }
 }
