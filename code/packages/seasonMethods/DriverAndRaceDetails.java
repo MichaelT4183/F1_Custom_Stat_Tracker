@@ -1,4 +1,4 @@
-package seasonMethods; // Package the class into a general folder for testing and MainClass
+package packages.seasonMethods; // Package the class into a general folder for testing and MainClass
 
 import java.util.ArrayList; // Used to store drivers and races 
 import java.util.Scanner; // Used for user input

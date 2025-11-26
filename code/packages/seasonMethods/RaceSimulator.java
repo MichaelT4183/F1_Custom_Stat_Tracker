@@ -1,3 +1,4 @@
+package packages.seasonMethods;
 import java.util.Scanner; // Used for user input
 import java.util.ArrayList; // Used for the driver and race lists
 import java.util.Random; // Used to get the weather, tires, dnf's, AI simulations etc.
@@ -99,6 +100,7 @@ public class RaceSimulator
             driverListCopy.remove(driverName); // Remove the driver from the list
         }
         displayRaceFinish(raceFinish); // Display the race finish
+        
     }
 
     // Method to display the race finish

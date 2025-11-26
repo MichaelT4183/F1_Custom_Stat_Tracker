@@ -1,4 +1,4 @@
-package seasonMethods; // Package the class into a general folder for testing and MainClass
+package packages.seasonMethods;
 
 import java.util.HashMap; // Used for championship points
 import java.util.LinkedHashMap; // Used for sorting the championship points
