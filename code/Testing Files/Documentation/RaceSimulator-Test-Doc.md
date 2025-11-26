@@ -83,3 +83,18 @@ to
 ```
 ArrayList<String> driverListCopy = new ArrayList<>(drivers);
 ```
+
+___
+
+### Test 3 - Displaying the championship table after the race simulations
+This test is to make sure that the championship table will output when the races have finished and show the final standings
+```
+ChampionshipTable championship = new ChampionshipTable(drivers);
+System.out.println(championship);
+```
+
+#### Result
+The code runs, but as i have called the constructor again in a seperate file, it will reset the championship table and will not display the updated one
+
+#### Updates and actions
+
