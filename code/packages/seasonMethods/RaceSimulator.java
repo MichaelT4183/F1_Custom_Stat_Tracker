@@ -75,7 +75,7 @@ public class RaceSimulator
     private void getRaceFinish()
     {
         String raceFinish[] = new String [drivers.size()]; // Create an array for where the drivers finish the race (length based on number of drivers)
-        ArrayList<String> driverListCopy = drivers; // Used to make sure to not delete the original driver list
+        ArrayList<String> driverListCopy = new ArrayList<>(drivers); // Used to make sure to not delete the original driver list
         // Get a new random runber to randomly decide who wins
         Random rng = new Random();
         int max = driverListCopy.size();

@@ -26,6 +26,11 @@ public class Test_File_RaceSimulator
 
         // Test the constructor and print the class
         RaceSimulator simRace = new RaceSimulator(drivers, races);
-        System.out.println(simRace);
+
+        for(int i = 0; i < races.size(); i++)
+        {
+            simRace.simulateRace(i);
+        }
+        
     }
 }
