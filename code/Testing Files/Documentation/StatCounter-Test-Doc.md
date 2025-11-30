@@ -23,8 +23,11 @@ StatCounter stats = new StatCounter(drivers, races, championship);
 stats.getStats(raceName, weather, raceFinish);
 ```
 
-### Results
+#### Results
 The file is successfully created and wrote to the file correctly. No errors were thrown.
 
-### Updates and actions
+#### Updates and actions
 I have changed the code very slightly to format the .txt file as intended as there were a few issues with how it. I also added an additional method to the file to stop the welcoming messages from repeating constantly.
+
+### Final Comments
+Not many updates were needed due to the code working from the start. The output file now has the correct formatting and displays the correct data needed.
