@@ -2,6 +2,7 @@
 import packages.seasonMethods.DriverAndRaceDetails;
 import packages.seasonMethods.RaceSimulator;
 import java.util.Scanner; // Used for user input
+import java.util.ArrayList; // Used to store the drivers and the races
 
 public class MainClass
 {
@@ -16,9 +17,12 @@ public class MainClass
 
         // Get the drivers and the races in the season and display them
         DriverAndRaceDetails driversAndRaces = new DriverAndRaceDetails(userName);
-        driversAndRaces.getDriverNames();
-        driversAndRaces.getRaceNames();
+        ArrayList<String> drivers = driversAndRaces.getDriverNames();
+        ArrayList<String> races = driversAndRaces.getRaceNames();
         System.out.println(driversAndRaces);
+
+        // Simulate the races
+        RaceSimulator simRace = new RaceSimulator(drivers, races);
     }
 
     // Method to get the name of the user

@@ -18,7 +18,7 @@ public class DriverAndRaceDetails
     }
 
     // Method used to get the names of the drivers
-    public void getDriverNames()
+    public ArrayList<String> getDriverNames()
     {
         String driverName = "";
         System.out.println(userName+", please input the names of the drivers. Type 'stop' to end:");
@@ -34,10 +34,12 @@ public class DriverAndRaceDetails
             }
             drivers.add(driverName); // Add the name to the ArrayList
         }
+
+        return drivers;
     }
 
     // Method used to get the names of the races
-    public void getRaceNames()
+    public ArrayList<String> getRaceNames()
     {
         String raceName = "";
         System.out.println("\n"+userName+", please input the names of the races. Type 'stop' to end:");
@@ -53,6 +55,8 @@ public class DriverAndRaceDetails
             }
             races.add(raceName); // Add the race to the ArrayList
         }
+
+        return races;
     }
 
     // toString method to display the list of drivers and races
