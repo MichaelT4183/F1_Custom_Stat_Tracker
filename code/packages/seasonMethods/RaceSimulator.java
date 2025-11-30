@@ -11,6 +11,7 @@ public class RaceSimulator
     //private ChampionshipTable championship = new ChampionshipTable(drivers);
     private Scanner scanner = new Scanner(System.in);
     private ChampionshipTable championship;
+    private StatCounter stats;
 
     // Create the java constructor
     public RaceSimulator(ArrayList<String> drivers, ArrayList<String> races)
@@ -19,6 +20,7 @@ public class RaceSimulator
         this.drivers = drivers;
         this.races = races;
         this.championship = new ChampionshipTable(drivers);
+        this.stats = new StatCounter(drivers, races, championship);
     }
 
     // Method to simulate a single race
@@ -50,7 +52,6 @@ public class RaceSimulator
         }
         while(!userInput.equals("next"));
         // Store the race stats
-        StatCounter stats = new StatCounter(drivers, races, championship);
         stats.getStats(raceName, weather, raceFinish);
     }
 
