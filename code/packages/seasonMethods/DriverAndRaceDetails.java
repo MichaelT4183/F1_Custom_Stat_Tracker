@@ -62,6 +62,6 @@ public class DriverAndRaceDetails
     // toString method to display the list of drivers and races
     public String toString()
     {
-        return "Your drivers are: "+drivers+"\n\nYour races are: "+races;
+        return "\nYour drivers are: "+drivers+"\n\nYour races are: "+races;
     }
 }
