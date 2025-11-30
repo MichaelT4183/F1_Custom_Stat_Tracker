@@ -31,7 +31,7 @@ public class RaceSimulator
         System.out.println("Weather: "+weather);
         // Display the results of the race
         System.out.println("\n\nHere is your race result:\n\n");
-        getRaceFinish();
+        String[] raceFinish = getRaceFinish();
 
         // Ask the user if they are ready to continue with the next race
         System.out.println("Please type 'next' to move onto the next race");
@@ -49,6 +49,9 @@ public class RaceSimulator
             }
         }
         while(!userInput.equals("next"));
+        // Store the race stats
+        StatCounter stats = new StatCounter(drivers, races, championship);
+        stats.getStats(raceName, weather, raceFinish);
     }
 
     // Method to get the weather for the race
@@ -74,7 +77,7 @@ public class RaceSimulator
     }
 
     // Method to get the race finish
-    private void getRaceFinish()
+    private String[] getRaceFinish()
     {
         String raceFinish[] = new String [drivers.size()]; // Create an array for where the drivers finish the race (length based on number of drivers)
         ArrayList<String> driverListCopy = new ArrayList<>(drivers); // Used to make sure to not delete the original driver list
@@ -96,6 +99,8 @@ public class RaceSimulator
         
         championship.appendChampionshipTable(raceFinish); // Sends the race finish to ChampionshipTable.java to append the table
         System.out.println(championship);
+
+        return raceFinish;
     }
 
     // Method to display the race finish
