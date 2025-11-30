@@ -10,6 +10,7 @@ public class RaceSimulator
     private ArrayList<String> races; // Get the number of races and the race names that are in the season
     //private ChampionshipTable championship = new ChampionshipTable(drivers);
     private Scanner scanner = new Scanner(System.in);
+    private ChampionshipTable championship;
 
     // Create the java constructor
     public RaceSimulator(ArrayList<String> drivers, ArrayList<String> races)
@@ -17,6 +18,7 @@ public class RaceSimulator
         // Initialize the variables
         this.drivers = drivers;
         this.races = races;
+        this.championship = new ChampionshipTable(drivers);
     }
 
     // Method to simulate a single race
@@ -89,9 +91,11 @@ public class RaceSimulator
             max -= 1; // Reduce the range of the rng
             driverListCopy.remove(driverName); // Remove the driver from the list
         }
+        
         displayRaceFinish(raceFinish); // Display the race finish
-        ChampionshipTable championship = new ChampionshipTable(drivers);
+        
         championship.appendChampionshipTable(raceFinish); // Sends the race finish to ChampionshipTable.java to append the table
+        System.out.println(championship);
     }
 
     // Method to display the race finish

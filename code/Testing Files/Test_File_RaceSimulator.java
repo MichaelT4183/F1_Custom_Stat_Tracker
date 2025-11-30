@@ -31,6 +31,5 @@ public class Test_File_RaceSimulator
         {
             simRace.simulateRace(i);
         }
-        
     }
 }
