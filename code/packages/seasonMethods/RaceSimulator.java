@@ -1,6 +1,5 @@
 package packages.seasonMethods;
 
-import java.util.Scanner; // Used for user input
 import java.util.ArrayList; // Used for the driver and race lists
 import java.util.Random; // Used to get the weather, tires, dnf's, AI simulations etc.
 
@@ -8,8 +7,6 @@ public class RaceSimulator
 {
     private ArrayList<String> drivers; // Get the drivers competing in the season
     private ArrayList<String> races; // Get the number of races and the race names that are in the season
-    //private ChampionshipTable championship = new ChampionshipTable(drivers);
-    private Scanner scanner = new Scanner(System.in);
     private ChampionshipTable championship;
     private StatCounter stats;
 
@@ -29,28 +26,11 @@ public class RaceSimulator
         // Get the name of the race and display the race information
         String raceName = races.get(i);
         String weather = getWeather();
-        System.out.println("The next race is: "+raceName+"\n\n");
+        System.out.println("\nThe next race is: "+raceName+"");
         System.out.println("Weather: "+weather);
         // Display the results of the race
-        System.out.println("\n\nHere is your race result:\n\n");
+        System.out.println("\nHere is your race result:\n");
         String[] raceFinish = getRaceFinish();
-
-        // Ask the user if they are ready to continue with the next race
-        System.out.println("Please type 'next' to move onto the next race");
-        String userInput = scanner.nextLine();
-        do
-        {
-            if(!userInput.equals("next"))
-            {
-                System.out.println("\nError: incorrect input. Please try again.");
-                userInput = scanner.nextLine();
-            }
-            else
-            {
-                break;
-            }
-        }
-        while(!userInput.equals("next"));
         // Store the race stats
         stats.getStats(raceName, weather, raceFinish);
     }
@@ -95,11 +75,8 @@ public class RaceSimulator
             max -= 1; // Reduce the range of the rng
             driverListCopy.remove(driverName); // Remove the driver from the list
         }
-        
         displayRaceFinish(raceFinish); // Display the race finish
-        
         championship.appendChampionshipTable(raceFinish); // Sends the race finish to ChampionshipTable.java to append the table
-        System.out.println(championship);
 
         return raceFinish;
     }

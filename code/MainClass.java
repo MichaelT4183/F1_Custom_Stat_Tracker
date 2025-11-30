@@ -25,9 +25,10 @@ public class MainClass
         // Create a menu for the season simulator to give users a choice on what to do
         RaceSimulator simRace = new RaceSimulator(drivers, races);
         int userInput;
+        int i = 0;
         while(true)
         {
-            System.out.println("Please choose from one of the following options\n");
+            System.out.println("\nPlease choose from one of the following options\n");
             System.out.println("1) See drivers and races");
             System.out.println("2) Simulate the season");
             System.out.println("3) View the championship table");
@@ -40,11 +41,9 @@ public class MainClass
             }
             else if(userInput == 2)
             {
-                // Simulate the races
-                for(int i = 0; i < races.size(); i++)
-                {
-                    simRace.simulateRace(i);
-                }
+                // Simulate a races
+                simRace.simulateRace(i);
+                i++;
             }
             else if(userInput == 3)
             {
