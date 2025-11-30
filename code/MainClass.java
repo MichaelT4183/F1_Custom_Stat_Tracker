@@ -52,6 +52,7 @@ public class MainClass
             else if(userInput == 4)
             {
                 System.out.println("\nThank you for using this simulator");
+                System.out.println("A file has been created to store all of the season information");
                 System.exit(0);
             }
             else
@@ -60,6 +61,10 @@ public class MainClass
                 userInput = scanner.nextInt();
             }
         }
+        // Goodbye message when the season has been fully simulated
+        System.out.println("\nThank you for using this simulator");
+        System.out.println("A file has been created to store all of the season information");
+        System.exit(0);
     }
 
     // Method to get the name of the user
