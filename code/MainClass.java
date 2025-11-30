@@ -12,8 +12,8 @@ public class MainClass
         System.out.println("Welcome user! Before we start, we will need your name.");
         String userName = getUserName();
         // Welcome message to introduce the user to the program
-        System.out.println("Hello "+userName+" and welcome to the Custom F1 Season Simulator!");
-        System.out.println("Before you are able to start simulating your own custom F1 races, you need to give us your drivers and races.");
+        System.out.println("\nHello "+userName+" and welcome to the Custom F1 Season Simulator!");
+        System.out.println("\nBefore you are able to start simulating your own custom F1 races, you need to give us your drivers and races.");
 
         // Get the drivers and the races in the season and display them
         DriverAndRaceDetails driversAndRaces = new DriverAndRaceDetails(userName);
@@ -23,6 +23,10 @@ public class MainClass
 
         // Simulate the races
         RaceSimulator simRace = new RaceSimulator(drivers, races);
+        for(int i = 0; i < races.size(); i++)
+        {
+            simRace.simulateRace(i);
+        }
     }
 
     // Method to get the name of the user
@@ -31,7 +35,6 @@ public class MainClass
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter your name:");
         String userName = scanner.nextLine();
-        scanner.close();
 
         return userName;
     }
