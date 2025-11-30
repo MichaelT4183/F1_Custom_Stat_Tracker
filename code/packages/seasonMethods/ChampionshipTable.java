@@ -103,7 +103,7 @@ public class ChampionshipTable
         if (sortedChampionshipPoints !=null)
         {
             // StringBuilder to add the championship points to a formatted mutable string
-            StringBuilder sb = new StringBuilder("Here is the current championship table:\n\n");
+            StringBuilder sb = new StringBuilder("\nHere is the current championship table:\n\n");
             int i = 1;
             for (Map.Entry<String, Integer> entry : sortedChampionshipPoints.entrySet())
             {
@@ -116,7 +116,7 @@ public class ChampionshipTable
         else
         {
             // StringBuilder to add the championship points to a formatted mutable string
-            StringBuilder sb = new StringBuilder("Here is the current championship table:\n\n");
+            StringBuilder sb = new StringBuilder("\nHere is the current championship table:\n\n");
             int i = 1;
             for (Map.Entry<String, Integer> entry : championshipPoints.entrySet())
             {

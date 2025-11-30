@@ -112,4 +112,9 @@ public class RaceSimulator
             System.out.println((i+1)+". "+raceFinish[i]);
         }
     }
+
+    public void displayChampionshipTable()
+    {
+        System.out.println(championship);
+    }
 }
