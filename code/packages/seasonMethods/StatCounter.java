@@ -7,7 +7,7 @@ import java.io.IOException; // Used for error checking for the file
 
 public class StatCounter
 {
-    ChampionshipTable championship; // Get the championship table into this file
+    private ChampionshipTable championship; // Get the championship table into this file
     private ArrayList<String> drivers; // Get the drivers competing in the season
     private ArrayList<String> races; // Get the races in the season
     private String[] podium = new String[3]; // Get the podium for each race
