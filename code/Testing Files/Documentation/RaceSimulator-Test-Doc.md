@@ -97,4 +97,60 @@ System.out.println(championship);
 The code runs, but as i have called the constructor again in a seperate file, it will reset the championship table and will not display the updated one
 
 #### Updates and actions
+After testing, I realised that it was an issue with initializing the **ChampionshipTable.java** constructor from the **RaceSimulator.java** file. I had to initialize the **ChampionshipTable.java** constructor within the **RaceSimulator.java** constructor using the following code:
+```
+private ChampionshipTable championship;
 
+// Create the java constructor
+public RaceSimulator(ArrayList<String> drivers, ArrayList<String> races)
+{
+    // Initialize the variables
+    this.drivers = drivers;
+    this.races = races;
+    this.championship = new ChampionshipTable(drivers);
+}
+```
+After implementing this, the code works as intended as correctly updates the championship table with the following update:
+```
+The next race is: Silverstone
+
+Weather: Dry
+
+Here is your race result:
+
+1. Kimi
+2. Lando
+3. Max
+4. Carlos
+5. Oscar
+Here is the current championship table:
+
+1. Kimi: 25
+2. Lando: 18
+3. Max: 15
+4. Carlos: 12
+5. Oscar: 10
+
+Please type 'next' to move onto the next race
+> next
+The next race is: Bahrain
+
+Weather: Dry
+
+Here is your race result:
+
+1. Max
+2. Carlos
+3. Lando
+4. Kimi
+5. Oscar
+Here is the current championship table:
+
+1. Max: 40
+2. Kimi: 37
+3. Lando: 33
+4. Carlos: 30
+5. Oscar: 20
+
+Please type 'next' to move onto the next race
+```
