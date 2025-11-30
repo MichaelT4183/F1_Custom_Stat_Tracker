@@ -26,7 +26,7 @@ public class MainClass
         RaceSimulator simRace = new RaceSimulator(drivers, races);
         int userInput;
         int i = 0;
-        while(true)
+        while(i < races.size())
         {
             System.out.println("\nPlease choose from one of the following options\n");
             System.out.println("1) See drivers and races");
