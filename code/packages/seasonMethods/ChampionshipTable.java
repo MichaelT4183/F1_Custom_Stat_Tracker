@@ -9,6 +9,10 @@ import java.util.Collections; // Used for sorting the championship points
 import java.util.Comparator; // Used for sorting the championship points
 import java.lang.StringBuilder; // Used for formatting the championship table
 
+/* This class is designed to create, store and append a championship
+table for the F1 race season. This class stores the name of the driver and
+their points in a HashMap (which closely relates a table) and can be updated
+and displayed to the user*/
 public class ChampionshipTable
 {
     // Create the private variables so users can't change them without the functions
@@ -26,7 +30,7 @@ public class ChampionshipTable
         setChampionshipTable(drivers);
     }
 
-    // Module to set the championship table based off the number of drivers and give them all 0 points
+    // Method to set the championship table based off the number of drivers and give them all 0 points
     private void setChampionshipTable(ArrayList<String> drivers)
     {
         for(int i = 0; i < drivers.size(); i++)
@@ -35,9 +39,10 @@ public class ChampionshipTable
         }
     }
 
-    // Module to change the championship table for drivers who got points
+    // Method to change the championship table for drivers who got points
     public void appendChampionshipTable(String[] raceFinish)
     {
+        // A for loop to go through the race finishers and update their points
         for(int i = 0; i < raceFinish.length; i++)
         {
             // Get the driver's name and the points for their finish position
@@ -73,12 +78,12 @@ public class ChampionshipTable
     // Method to sort the championship table in decsending order
     private Map<String, Integer> sortChampionshipPoints(HashMap<String, Integer> championshipPoints)
     {
-        // Convert championship points HashMap to a list
+        // Convert championship points HashMap to an ArrayList
         List<Map.Entry<String, Integer>> entryList = new ArrayList<>(championshipPoints.entrySet());
         // Sort the list by value in descending order
         Collections.sort(entryList, new Comparator<Map.Entry<String, Integer>>() 
         {
-            @Override // Used to throw an error in case something is spelled incorrectly
+            @Override // Overrides the current compare method with a new one
             public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2)
             {
                 return e2.getValue().compareTo(e1.getValue());
@@ -99,7 +104,7 @@ public class ChampionshipTable
     // Display the current championship standings
     public String toString()
     {
-        // Checks to see if the sorted table is null. If not, it displays the table
+        // Checks to see if the sorted table is null. If not, it displays the sorted table
         if (sortedChampionshipPoints !=null)
         {
             // StringBuilder to add the championship points to a formatted mutable string

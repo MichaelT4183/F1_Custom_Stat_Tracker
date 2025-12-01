@@ -5,6 +5,10 @@ import java.io.File; // Used for creating a file
 import java.io.FileWriter; // Used for writing to the file
 import java.io.IOException; // Used for error checking for the file
 
+/* This class is designed to get data about a race from the RaceSimulator.java file and
+write the information of the race to a .txt file which can be used to look back on
+the simulated season even if the user stops the simulation. It will also keep track of
+any other custom seasons that are simulated and store them in the same file */
 public class StatCounter
 {
     private ChampionshipTable championship; // Get the championship table into this file
@@ -38,7 +42,8 @@ public class StatCounter
     }
 
     /* Method to create the start of the file
-    This is to prevent parts of the write from being repeated every time */
+    This is to prevent the welcome messages at the start
+    of the file from being repeated every time it is written to */
     private void writeToStartOfFile()
     {
         try
@@ -60,7 +65,7 @@ public class StatCounter
             }
             writer.close(); // Closes the writer
         }
-        // Throw an error if the file cannot be written to
+        // Throw an error if the file cannot be written to and displays the error
         catch (IOException e)
         {
             System.out.println("There was an error creating the file.");
@@ -86,7 +91,7 @@ public class StatCounter
             writer.write("\n"+championship.toString()); // Writes the championsip table after the race happened
             writer.close(); // Closes the writer
         }
-        // Throw an error if the file cannot be written to
+        // Throw an error if the file cannot be written to and displays the error
         catch (IOException e)
         {
             System.out.println("There was an error creating the file.");

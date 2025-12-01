@@ -3,12 +3,17 @@ package packages.seasonMethods;
 import java.util.ArrayList; // Used for the driver and race lists
 import java.util.Random; // Used to get the weather, tires, dnf's, AI simulations etc.
 
+/* This class is designed to simulate a single race in a season. This 
+simulator will randomly decide the race finish of the drivers on a specific
+track, get their points from where they placed and update them to the championship
+table. This class also has a method to display the championship table as there
+is no need to have the user interact with the ChampionshipTable.java file. */
 public class RaceSimulator
 {
     private ArrayList<String> drivers; // Get the drivers competing in the season
     private ArrayList<String> races; // Get the number of races and the race names that are in the season
-    private ChampionshipTable championship;
-    private StatCounter stats;
+    private ChampionshipTable championship; // Used to interact with the ChampionshipTable.java file
+    private StatCounter stats; // Used to interact with the StatCounter.java file
 
     // Create the java constructor
     public RaceSimulator(ArrayList<String> drivers, ArrayList<String> races)
@@ -23,7 +28,7 @@ public class RaceSimulator
     // Method to simulate a single race
     public void simulateRace(int i)
     {
-        // Get the name of the race and display the race information
+        // Get the name of the race, the weather and display the race information
         String raceName = races.get(i);
         String weather = getWeather();
         System.out.println("\nThe next race is: "+raceName+"");
@@ -31,7 +36,7 @@ public class RaceSimulator
         // Display the results of the race
         System.out.println("\nHere is your race result:\n");
         String[] raceFinish = getRaceFinish();
-        // Store the race stats
+        // Store the race stats in the StatCounter.java file
         stats.getStats(raceName, weather, raceFinish);
     }
 
@@ -90,6 +95,7 @@ public class RaceSimulator
         }
     }
 
+    // Method to display the championship table (Used in MainClass.java)
     public void displayChampionshipTable()
     {
         System.out.println(championship);

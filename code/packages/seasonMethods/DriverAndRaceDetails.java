@@ -3,6 +3,10 @@ package packages.seasonMethods; // Package the class into a general folder for t
 import java.util.ArrayList; // Used to store drivers and races 
 import java.util.Scanner; // Used for user input
 
+/* This class is designed to get the users to input the names of
+the drivers that will be taking part and the races that they are
+competing in. This program will store them into an ArrayList and
+will be used in different files. */
 public class DriverAndRaceDetails
 {
     // Setup global variables
@@ -14,13 +18,13 @@ public class DriverAndRaceDetails
     // Create the Java constructor
     public DriverAndRaceDetails(String userName)
     {
-        this.userName = userName;
+        this.userName = userName; // Initialize the variable into the file
     }
 
     // Method used to get the names of the drivers
     public ArrayList<String> getDriverNames()
     {
-        String driverName = "";
+        String driverName = ""; // Store as a blank so the loop can continue
         System.out.println(userName+", please input the names of the drivers. Type 'stop' to end:");
 
         // Allow the user the keep adding names until they type 'stop'
@@ -41,7 +45,7 @@ public class DriverAndRaceDetails
     // Method used to get the names of the races
     public ArrayList<String> getRaceNames()
     {
-        String raceName = "";
+        String raceName = ""; // Store as a blank so the loop can continue
         System.out.println("\n"+userName+", please input the names of the races. Type 'stop' to end:");
 
         // Allow the user the keep adding names until they type 'stop'
