@@ -3,6 +3,7 @@ import packages.seasonMethods.DriverAndRaceDetails;
 import packages.seasonMethods.RaceSimulator;
 import java.util.Scanner; // Used for user input
 import java.util.ArrayList; // Used to store the drivers and the races
+import java.util.InputMismatchException; // Used to catch an input exception during the menu
 
 /* This class is designed to be the main program that is ran for the user to
 use the custom F1 season simulator. This file uses code from the test files
@@ -33,44 +34,53 @@ public class MainClass
         RaceSimulator simRace = new RaceSimulator(drivers, races);
         int userInput;
         int i = 0;
-        while(i < races.size())
+        do
         {
-            System.out.println("\nPlease choose from one of the following options\n");
-            System.out.println("1) See drivers and races");
-            System.out.println("2) Simulate the next race in the season");
-            System.out.println("3) View the championship table");
-            System.out.println("4) End the program");
-            userInput = scanner.nextInt();
-
-            if(userInput == 1)
+            try
             {
-                // Display the drivers and races
-                System.out.println(driversAndRaces);
-            }
-            else if(userInput == 2)
-            {
-                // Simulate a race
-                simRace.simulateRace(i);
-                i++;
-            }
-            else if(userInput == 3)
-            {
-                // Display the championship table
-                simRace.displayChampionshipTable();
-            }
-            else if(userInput == 4)
-            {
-                // Ends the program
-                System.out.println("\nThank you for using this simulator");
-                System.out.println("A file has been created to store all of the season information");
-                System.exit(0);
-            }
-            else
-            {
-                System.out.println("That was an incorrect input. Please try again.");
+                System.out.println("\nPlease choose from one of the following options\n");
+                System.out.println("1) See drivers and races");
+                System.out.println("2) Simulate the next race in the season");
+                System.out.println("3) View the championship table");
+                System.out.println("4) End the program");
                 userInput = scanner.nextInt();
+
+                if(userInput == 1)
+                {
+                    // Display the drivers and races
+                    System.out.println(driversAndRaces);
+                }
+                else if(userInput == 2)
+                {
+                    // Simulate a race
+                    simRace.simulateRace(i);
+                    i++;
+                }
+                else if(userInput == 3)
+                {
+                    // Display the championship table
+                    simRace.displayChampionshipTable();
+                }
+                else if(userInput == 4)
+                {
+                    // Ends the program
+                    System.out.println("\nThank you for using this simulator");
+                    System.out.println("A file has been created to store all of the season information");
+                    System.exit(0);
+                }
+                else
+                {
+                    System.out.println("\nThat was not in the range of options. Please try again.");
+                }
+            }
+            // Throws an error if a user inputs something that is not an integer
+            catch(InputMismatchException e)
+            {
+                System.out.println("\nThat was an incorrect input. Please input an integer.");
+                scanner.nextLine(); // Clears the scanner buffer
             }
         }
+        while(i < races.size());
         // Goodbye message when the season has been fully simulated
         System.out.println("\nAll of the races have been simulated\n");
         System.out.println("\nThank you for using this simulator");
@@ -81,8 +91,23 @@ public class MainClass
     // Method to get the name of the user
     private static String getUserName(Scanner scanner)
     {
+        String userName = ""; // Assign the userName to nothing to force the user to input something
         System.out.println("Please enter your name:");
-        String userName = scanner.nextLine();
+        while (true) 
+        {
+            userName = scanner.nextLine();
+            /* This checks if the user has inputted anything. If it is null or blank,
+            it will ask the user to input something. This will happen until the user inputs
+            anything */
+            if(userName == null || userName.isEmpty())
+            {
+                System.out.println("Please enter something.\n");
+            }
+            else
+            {
+                break;
+            }
+        }
 
         return userName;
     }
