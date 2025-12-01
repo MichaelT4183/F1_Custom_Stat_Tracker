@@ -31,12 +31,23 @@ public class DriverAndRaceDetails
         while(!driverName.equals("stop"))
         {
             driverName = scanner.nextLine();
-            // Stops the while loop when the user inputs 'stop'
-            if(driverName.equals("stop"))
+            // Checks if the user has inputted anything
+            if(driverName == null || driverName.isEmpty())
             {
-                break;
+                System.out.println("Please enter a value\n"); // Throws an error
             }
-            drivers.add(driverName); // Add the name to the ArrayList
+            else
+            {
+                // Stops the while loop when the user inputs 'stop'
+                if(driverName.equals("stop"))
+                {
+                    break;
+                }
+                else
+                {
+                    drivers.add(driverName); // Add the name to the ArrayList
+                }
+            }
         }
 
         return drivers;
@@ -52,12 +63,23 @@ public class DriverAndRaceDetails
         while(!raceName.equals("stop"))
         {
             raceName = scanner.nextLine();
-            // Stops the while loop when the user inputs 'stop'
-            if(raceName.equals("stop"))
+            // Checks if the user has inputted anything
+            if(raceName == null || raceName.isEmpty())
             {
-                break;
+                System.out.println("Please enter a value\n"); // Throws an error
             }
-            races.add(raceName); // Add the race to the ArrayList
+            else
+            {
+                // Stops the while loop when the user inputs 'stop'
+                if(raceName.equals("stop"))
+                {
+                    break;
+                }
+                else
+                {
+                    races.add(raceName); // Add the name to the ArrayList
+                }
+            }
         }
 
         return races;
