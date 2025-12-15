@@ -12,7 +12,7 @@ This project is created in Java and designed to allow you to simulate a customis
 
 > **Warning**  
 > If there are any errors running the program, please refer to the dependencies
-> 
+
 #### Method 1: Git
 ```
 $ git clone https://github.com/MichaelT4183/F1_Custom_Stat_Tracker.git
@@ -27,7 +27,7 @@ java code/MainClass.java
 #### Method 3: Run from IDE
 Firstly, download the zip file from the github repository and extract it. Then load up the folder in an IDE and run the **MainClass.java** file
 
-### Dependancies
-
-
-### Usage
+### Dependencies
+Please ensure that you have the following:
+* An up-to-date Java Development Kit (JDK)
+* An IDE e.g. VSCode, Eclipse etc. (If you are using an IDE to run the program
