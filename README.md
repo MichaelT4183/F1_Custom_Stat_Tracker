@@ -2,7 +2,11 @@
 A program in Java to allow you to create a custom season and track statistics
 
 ### Description
-
+This project is created in Java and designed to allow you to simulate a customised F1 season and track the stats within the season. The following are the features in the program:
+* Add your own drivers and races
+* View the drivers and races you have added
+* Simulate a season race by race
+* View all of the statistics in a text file after the program finishes  
 
 ### Installation
 
